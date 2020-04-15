@@ -1,0 +1,18 @@
+package assignment6;
+class Shape {
+    public void draw() {System.out.println("Shape");}
+}
+class Circle extends Shape{
+    public void paint(){
+        super.draw();//슈퍼클래스의 draw 메서드를 호출 
+        /*draw(); this.draw() 라고하면 Circle 클래스 내에 draw 메서드 호출 */
+    }
+    public void draw() {System.out.println("Circle");} // 메서드 오버라이딩 
+}
+public class Dynamic_Binding{
+    public static void main(String[] args){
+        Shape s = new Circle(); //슈퍼클래스타입으로 객체생성 업캐스팅 
+        ((Circle) s).paint();// 근데 왜 Circle 로 캐스팅 안하면 오류나는지 모르겠다.
+        /* s.paint(); The method paint() is undefined for the type Shape*/
+    }
+}
