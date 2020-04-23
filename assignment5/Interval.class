@@ -1,0 +1,36 @@
+public class Interval{
+    private int x;
+    private int y;
+
+    public Interval(){
+        this(0.0,0.0);
+    }
+    public Interval(int a, int b){
+        this.x = a;
+        this.y = b;
+        int count=0;
+        int intervalArray[] = new int[b-a+1];
+        for(int i=a;i<=b;i++){
+            intervalArray[count] = i;
+            count = count+1;
+            }
+        
+    }
+    public Interval(double a, double b){
+
+
+    }
+    public void add(Interval val){
+
+    }
+    public void sub(Interval val){
+        
+    }
+    public void times(Interval val){
+        
+    }
+    public void divide(Interval val){
+        
+    }
+
+}
