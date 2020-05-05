@@ -1,0 +1,49 @@
+수학관련 계산을 할 때에는 Math 클래스를 사용한다. 
+java.lang 패키지에 들어있어 import 불필요 
+모든 메소드는 static 타입: 클래스 이름으로 바로 호출해야함 
+예) math.sin()
+
+난수발생 메소드 
+static double random()
+0.0 ~ 1.0 미만의 임의의 double 값을 반환 0.0은 포함 1.0은 미포함 
+
+1에서 100 사이 난수 10개를 발생시키는 코드 예제
+for(int x=0;x<10;x++){
+    int n = (int)(Math.random()*100+1); 
+    System.out.println(n);
+}
+
+Math.random()*100 은 0.0 ~ 99.99 사이의 실수 리턴 
+Math.random()*100+1 1.0 ~ 10.99 사이의 실수 값
+int 로 캐스팅 하면 소수점 제거 
+
+다양한 난수를 발생시키는 클래스 
+jvav.util.Randon 클래스
+
+Calender  클래스 
+
+java.util 패키지 
+시간과 날짜 정보 저장 관리 
+
+Calendar 객체 생성 
+
+CalenDar now = Calendar.getInstance(); //new 연산자를 사용하지 않는다. 왜? 추상클래스 이므로 
+객체의 정보를 알아낼 깨는 get 을 사용하면 된다. 
+
+날짜 시간 알아내기
+사용 예시 
+int year = now.get(Calendar.YEAR); // now 에 저장된 년도
+int month = now.get(Calendar.MONTH) + 1; // now 에 저장된 달
+MONTH의 값은 0~ 11 까지의 값이 리턴되므로 1씩 더해준다. 
+
+날짜와 시간 설정 
+Calendar 객체에 저장 
+set 사용 
+사용예시 
+
+Calendar firstDate = Calendar.getInstance();
+
+firstDate.clear()//현재날짜와 시간 정보를 모두 지운다. 
+firstDate.set(2016, 11, 25);// 날짜를 괄호안의 내용으로 설정 날짜설정은 2016 12 25 로 지정된다. 11은 12월이다.
+firstDate.set(Calendar.HOUR_OF_DAT, 20);// 저녁 8시로 설정 
+firstDate.set(Calendat.MINUTE, 30); 30분으로 설정 

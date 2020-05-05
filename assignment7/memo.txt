@@ -149,4 +149,100 @@ String(char[] value) char 배열에 있는 문자들을 스트링 객체로 생�
 String(String original) 매개변수로 주어진 문자열과 동일한 스트링 객체 생성
 
 스트링 리터럴과 new String()
-리터럴로 생성 String s = "Hello";
+
+스트링 생성방법 
+
+리터럴로 생성 String s = "Hello"; "" 따ㅣ옴표를 치는 경우를 리터럴이라고 함   
+만약
+String a = "Hello";
+String c = "Hello"; 
+같이 같은 리터럴로 정의되어있는 서로 다른 String이  있다면 
+ JVM 에서 스트링 리터럴 테이블에서 Hello 리터럴을 공유한다., 
+즉 레퍼런스가 같다. 
+근데 리터럴로 선언한 스트링 객체는 수정이 불가능하다. 
+
+객체로 생성
+String b = new Srting("Java")
+String d = new Srting("Java")
+이렇게 생성하면 힙 메모리 라는 곳에 값이ㅣ 저장되는데
+값이 같더라도 객체가 서로 다르면 다른 값이 된다. 
+각 객체 레퍼런스가 개별적임 
+
+스트링 객체의 주요 특징
+스트링 객체는 수정 불가능 한번 만들어진 스트링 객체는 수정 불가늘 
+String s = new String("Hello");
+String t = s.concat("Java");  메소드는 기존 스트링 객체에 매개변수문자열을 붙이는 메소드이다. 
+근데 기본 객체가 수정이 되는것이 아니라 새로 생기는 것이다ㅓ. 
+스트링 비교시 반드시  equals 사용 
+
+주요 메소드 
+compareTO()두 스트링을 사전 순으로 비교하여 두 스트링이 같으면 0, 현재 스트링이 비교스트링보다 먼저 나오면 음수 아니면 양수
+
+abc <baaaa
+스트링 메소드들은 원래 선언된 스트림 객체를 수정하는것이 아니다
+변경된 값의 객체를 새로 생성한다. 
+
+문자열 연결 
++ 연산자로 연결 
+객체는 객체.toString() 을 호출하여 문자열로 변환하여 연결한다. 
+기본타입 값은 문자열로 변환하여 연결 
+
+concat()
+String s1 = "abcd";
+String s2 = "efgh";
+
+s1 = s1.concat(s2); 라고 하면 
+s1 의 "abcd" 가 "abcdefgh" 로 수정되는 것이 아닌 s1 객체가 새로운 스트링 객체 "abcdefgh" 를 가리키게 되는것이다
+레퍼런스만 바뀜
+
+StringBuffer 클래스
+기본적인 기능은 String 클래스와 같음 
+근데 문자열이 변경이 가능하다 
+StringBuffer 객체의 크기는 스트링 길이에 따라 가변적이다. 
+생성자
+StrinfBuffer() = 초기버퍼크기가 16인 객체 생성 
+
+StringBuffer append(String str) str 스트링을 스트링 버퍼에 붙인다. 
+StringBuffer sb = new StrinfBuffer("a"); 
+sb.append(" pencil:);
+sb.insert(2, "nice); 
+String index from 2  nice
+result nice pencil
+새로운객체 생성없이 추가 가능 concat 와 차이 
+
+sb.replace(2,6,"bad") -> 스트링 인덱스 2~6 까지를 bad 로 바꿈
+nice pencil -> bad pencil 부족한 글자는 공백으로 채우는게 아니라 6-1 즉5까지만 바꿈 정의가 그래 
+범위 정하는 StringBuffer 메소드는 거의 그렇다고 생각해
+if StringBuffer.somemethod(2,5) 이면 2~4 까지임
+
+StringTokenizer 
+java.util.StringTokenizer 에 포함 
+하나의 문자열을 여러 문자열로 분리
+문자열을 분리할 때 사용되는 기준 문자 : 구분문자 
+
+String query = "name=litae&addr=seoul&age=21;
+StringTokenizer st = new StringTokenizer(query,"&");
+& 글자를 기준으로 분리 
+그러면 한 객체에 분리된 문자열이 토큰으로 저장된다. 
+토큰 
+
+생성자 
+StringTokenizer(String str) str 스트링의 각 문자를 구분 문자로 문자열을 분리하는 스트링 토크나이저 생성 
+StringToknizer(String str, String delim) str 스트링과 delim 구분 문자로 문자열을 분리하는 스트링 토크나이저 생성
+
+String  클래스의 split 보다 편리 
+
+주요 메소드 
+
+public class StringTokenizerEx{
+    public static void main(String[] srgs){
+        StringTokenizer st = new StringTokenizer("홀길동/장회/홍련/콩쥐/팥쥐","/");
+        while(st.hasMoreToken())// 
+        system.out.println(st.nextToken());
+    }
+}
+결과 홍길동
+장화
+홍련
+콩쥐 
+팥쥐 
