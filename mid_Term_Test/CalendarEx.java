@@ -1,3 +1,4 @@
+package mid_Term_Test;
 import java.util.Calendar;
 public class CalendarEx{
     public static void printCalendar(String msg, Calendar cal){ // 특정 문자열과 Calendar 객체를 입력으로 받음 
