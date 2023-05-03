@@ -1,3 +1,2 @@
 # 3th_grade_JAVA
-this is JAVA weekly assignment record in my university
-java basic 
+학부 자바 과제 
